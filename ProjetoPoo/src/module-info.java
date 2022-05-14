@@ -1,0 +1,3 @@
+module ProjetoPoo {
+	requires xstream;
+}
