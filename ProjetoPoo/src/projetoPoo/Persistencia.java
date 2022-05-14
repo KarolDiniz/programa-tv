@@ -11,36 +11,31 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class Persistencia {
 	
-	private XStream xstream = new XStream(new DomDriver());
-	private File arquivo = new File("Central.xml");
+	private XStream xStream = new XStream(new DomDriver("UTF-8"));
 	
-	public void salvarCentral(CentralDeInformacoes c) {
+	public void salvarCentral(CentralDeInformacoes central, String centralXML) throws Exception { //Realiza a persistência dos dados e converte o arquivo para XML
+		File arquivo = new File(centralXML);
+		arquivo.createNewFile();
 		
-		String xml = xstream.toXML(c);
+		PrintWriter pw = new PrintWriter(arquivo);
+		String xml = "<?xml version=\"1.0\" encoding =\"UTF-8\" ?>\n"; //abertura do arquivo
+		xml += xStream.toXML(central);
+		pw.print(xml);
+		pw.close();
 		
-			try {
-				if(!arquivo.exists()) 
-					arquivo.createNewFile();
-				PrintWriter gravar = new PrintWriter(arquivo);
-				gravar.print(xml);
-				gravar.close();
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	
-	public CentralDeInformacoes recuperarCentral() {
+	public CentralDeInformacoes recuperarCentral(String centralXML) throws Exception { //Converte o arquivo XML para o objeto requerido
+		File arquivo = new File(centralXML);
+		if(arquivo.exists()) { //verifica existência do arquivo
+			FileInputStream fis = new FileInputStream(arquivo);
+			return (CentralDeInformacoes) xStream.fromXML(fis); //retorna o objeto com os dados salvos
+		}else {
+			throw new Exception("Recuperação inválida! [não há arquivo] ");
+			
+			
+		}
 		
-			try {
-				if(arquivo.exists()) {
-					FileInputStream arquivoF = new FileInputStream(arquivo);
-					return(CentralDeInformacoes) xstream.fromXML(arquivoF);
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-			return new CentralDeInformacoes();
 	}
 
 }
