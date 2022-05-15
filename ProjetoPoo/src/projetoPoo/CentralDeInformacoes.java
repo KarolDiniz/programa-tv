@@ -8,6 +8,14 @@ public class CentralDeInformacoes {
 	private List<ProgramaDeTV> todosOsProgramas = new ArrayList<>();
 	private List<Canal> todosOsCanais = new ArrayList<>();
  
+	public List<Canal> getTodosOsCanais() {
+		return todosOsCanais;
+	}
+
+	public void setTodosOsCanais(List<Canal> todosOsCanais) {
+		this.todosOsCanais = todosOsCanais;
+	}
+
 	public List<ProgramaDeTV> getTodosOsProgramas() {
 		return todosOsProgramas;
 	}
@@ -44,13 +52,16 @@ public class CentralDeInformacoes {
 		}	
 	
 	public Canal recuperarCanalPeloNome(String escolha) { //erro - ( 2 metodo (recuperar) da questao 5 )
-		for(int i = 0; i < todosOsProgramas.size(); i++) {
-			if(todosOsCanais.)
-				return Canal;
+		for(int i = 0; i < todosOsCanais.size(); i++) {
+			if(todosOsCanais.get(i).getNome().equals(escolha)) {
+			
+				return todosOsCanais.get(i);
+			}
 		}
 			return null;
 		}
 
+	
 	}
 	
 	

@@ -4,13 +4,14 @@ public class ProgramaDeTV {
 	private long id;
 	private String nome;
 	private TipoDePrograma tipo;
-	private DiaDaSemana dia;
+	private DiaDaSemana[] dia = new DiaDaSemana[7];
 	private Canal canal;
 	
-	public ProgramaDeTV(String nome, TipoDePrograma tipo, DiaDaSemana dia) {
+	public ProgramaDeTV(String nome, TipoDePrograma tipo, DiaDaSemana[] dia, Canal canal) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.dia = dia;
+		this.canal = canal;
 		id = System.currentTimeMillis();
 	}
 	
@@ -19,7 +20,7 @@ public class ProgramaDeTV {
 	}
 	
 	public String toString() {
-		return "O nome do programa Ã©: " + nome;
+		return "O nome do programa é: " + nome;
 	}
 	public long getID() {
 		return id;
@@ -36,10 +37,10 @@ public class ProgramaDeTV {
 	public TipoDePrograma getTipo() {
 		return tipo;
 	}
-	public void setDia(DiaDaSemana dia) {
+	public void setDia(DiaDaSemana[] dia) {
 		this.dia = dia;
 	}
-	public DiaDaSemana getDia() {
+	public DiaDaSemana[] getDia() {
 		return dia;
 	}
 

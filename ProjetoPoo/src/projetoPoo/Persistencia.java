@@ -31,7 +31,7 @@ public class Persistencia {
 			FileInputStream fis = new FileInputStream(arquivo);
 			return (CentralDeInformacoes) xStream.fromXML(fis); //retorna o objeto com os dados salvos
 		}else {
-			throw new Exception("Recupera√ß√£o inv√°lida! [n√£o h√° arquivo] ");
+			throw new Exception("RecuperaÁ„o inv·lida! [n„o h· arquivo] ");
 			
 			
 		}
