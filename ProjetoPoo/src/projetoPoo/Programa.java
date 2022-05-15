@@ -369,7 +369,6 @@ public class Programa {
 		}		
 			
 		
-	
 		ler.close();
 		
 	}
