@@ -13,6 +13,10 @@ public class Persistencia {
 	
 	private XStream xStream = new XStream(new DomDriver("UTF-8"));
 	
+	public XStream getPermition() {//retorna, a passagem valor do objeto XStream
+		return xStream;
+	}
+	
 	public void salvarCentral(CentralDeInformacoes central, String centralXML) throws Exception { //Realiza a persistência dos dados e converte o arquivo para XML
 		File arquivo = new File(centralXML);
 		arquivo.createNewFile();

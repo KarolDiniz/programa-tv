@@ -3,6 +3,9 @@ package projetoPoo;
 import java.util.List;
 import java.util.Scanner;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 public class Programa {
 	
 	public static void main(String[] args) throws Exception {
@@ -12,8 +15,12 @@ public class Programa {
 		Persistencia p = new Persistencia();
 		
 		CentralDeInformacoes c = new CentralDeInformacoes();
+		p.getPermition().allowTypes( new Class[] {CentralDeInformacoes.class, Persistencia.class, Canal.class,DiaDaSemana.class,
+				GeradorDeRelatorios.class,Programa.class,TipoDePrograma.class});
 		
-		///c = p.recuperarCentral("arquivo");
+		
+		//c = p.recuperarCentral("arquivo");
+		
 		
 		boolean sair = false;
 		

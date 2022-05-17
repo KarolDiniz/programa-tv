@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding ="UTF-8" ?>
+<projetoPoo.CentralDeInformacoes>
+  <todosOsProgramas/>
+  <todosOsCanais>
+    <projetoPoo.Canal>
+      <nome>sbt</nome>
+      <tipoDoCanal>pago</tipoDoCanal>
+    </projetoPoo.Canal>
+  </todosOsCanais>
+</projetoPoo.CentralDeInformacoes>
