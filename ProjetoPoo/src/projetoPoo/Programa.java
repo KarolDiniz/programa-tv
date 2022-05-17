@@ -13,7 +13,7 @@ public class Programa {
 		
 		CentralDeInformacoes c = new CentralDeInformacoes();
 		
-		c = p.recuperarCentral("arquivo");
+		///c = p.recuperarCentral("arquivo");
 		
 		boolean sair = false;
 		
@@ -35,7 +35,7 @@ public class Programa {
 					String nomeDoPrograma = ler.nextLine();
 					
 				
-					TipoDePrograma tipoDePrograma;
+					TipoDePrograma tipoDePrograma=null;
 					boolean tipoDeProgramaInicia = true;
 					
 					while(tipoDeProgramaInicia == true) {
@@ -211,7 +211,7 @@ public class Programa {
 					Canal globo = new Canal("GLOBO", "ABERTO");
 					Canal band = new Canal("BAND", "ABERTO");
 					
-					Canal canal;
+					Canal canal=null;
 					
 					boolean canalIniciar = true;
 					
