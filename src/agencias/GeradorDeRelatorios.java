@@ -6,7 +6,6 @@ public class GeradorDeRelatorios {
 	
 	public static void obterProgramacaoDeUmCanal(Canal canalTipo) {
 		
-		
-    }
+	}
 }
 		
