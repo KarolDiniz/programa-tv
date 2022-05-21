@@ -1,7 +1,10 @@
-package projetoPoo;
+package agencias;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import transmissao.Canal;
+import transmissao.ProgramaDeTV;
 
 public class CentralDeInformacoes {
 	

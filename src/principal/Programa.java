@@ -1,16 +1,21 @@
-package projetoPoo;
+package principal;
 
 import java.util.List;
 import java.util.Scanner;
+
+import agencias.CentralDeInformacoes;
+import agencias.Persistencia;
+import enums.DiaDaSemana;
+import enums.TipoDePrograma;
+import transmissao.Canal;
+import transmissao.ProgramaDeTV;
 
 public class Programa {
 	
 	public static void main(String[] args) throws Exception {
 		
 		Scanner ler = new Scanner(System.in);
-		
 		Persistencia p = new Persistencia();
-		
 		CentralDeInformacoes c = p.recuperarCentral();
 		
 		boolean sair = false;
@@ -20,19 +25,17 @@ public class Programa {
 			System.out.println(" 1 - CADASTRAR NOVO PROGRAMA. ");
 			System.out.println(" 2 - LISTAR TODOS OS PROGRAMAS. ");
 			System.out.println(" 3 - LISTAR TODOS OS PROGRAMAS DE UM MESMO TIPO. ");
-			System.out.println(" 4 - NOVO CANAL DE TELEVISÃO. ");
-			System.out.println(" 5 - LISTAR TODOS OS CANAIS DE TELEVISÃO. ");
+			System.out.println(" 4 - NOVO CANAL DE TELEVISï¿½O. ");
+			System.out.println(" 5 - LISTAR TODOS OS CANAIS DE TELEVISï¿½O. ");
 			System.out.println(" S - SAIR ");
-			System.out.println("DIGITE O NUMÉRO DA OPÇÃO OU S CASO QUEIRA SAIR: ");
+			System.out.println("DIGITE O NUMï¿½RO DA OPï¿½ï¿½O OU S CASO QUEIRA SAIR: ");
 			String opc = ler.nextLine();
 			
 			if (opc.equals("1")) {
 					
 					System.out.println("DIGITE O NOME DO PROGRAMA DE TV: ");
-					
 					String nomeDoPrograma = ler.nextLine();
 					
-				
 					TipoDePrograma tipoDePrograma = null;
 					boolean tipoDeProgramaInicia = true;
 					Canal canal = null;
@@ -42,54 +45,40 @@ public class Programa {
 					System.out.println("1 - SERIE REGULAR. ");
 					System.out.println("2 - REALITY SHOW. ");
 					System.out.println("3 - PROGRAMA CONTINUO. ");
-					System.out.println("DIGITE UMA DAS OPÇÕES: ");
+					System.out.println("DIGITE UMA DAS OPï¿½ï¿½ES: ");
 					
 					String opcaoPrograma = ler.nextLine();
 					
-					
-						
 						if(opcaoPrograma.equals("1")) {
-						
 							tipoDePrograma = TipoDePrograma.SERIES_REGULARES; 
 							tipoDeProgramaInicia = false;
 							
 						}else if(opcaoPrograma.equals("2")) {
-						
 							tipoDePrograma = TipoDePrograma.REALITY_SHOWS;
 							tipoDeProgramaInicia = false;
 							
 						}else if(opcaoPrograma.equals("3")) {
-						
 							tipoDePrograma = TipoDePrograma.PROGRAMAS_CONTINUOS;
 							tipoDeProgramaInicia = false;
 							
 						}else {
-						
-							System.out.println("OPÇÃO INVÁLIDA.");
+							System.out.println("OPï¿½ï¿½O INVï¿½LIDA.");
 						
 						}
-						
 					}
-					
-					
 					DiaDaSemana[] diaDaSemana = new DiaDaSemana[7];
 					boolean diaDaSemanaIniciar = true;
 					
 					while(diaDaSemanaIniciar == true) {
-						
-						System.out.println("ESSE PROGRAMA DE TV É TRANSMITIDO EM QUANTOS DIAS NA SEMANA? ");
-						
+						System.out.println("ESSE PROGRAMA DE TV ï¿½ TRANSMITIDO EM QUANTOS DIAS NA SEMANA? ");
 						int qtdDeDias = Integer.parseInt(ler.nextLine());
 						
-						
 						boolean confirmacaoDoDia = true;
-						
 						while(confirmacaoDoDia == true) {
 							
 							if(qtdDeDias == 1) {
 							
 								System.out.println("QUAL O DIA DE SEMANA QUE ELE PASSA? (DOMINGO, SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA OU SABADO). ");
-							
 								String diaDaSemanaInformado = ler.nextLine();
 							
 								if(diaDaSemanaInformado.equals("SEGUNDA")) {
@@ -136,7 +125,7 @@ public class Programa {
 								
 								}else {
 									
-									System.out.println("OPÇÃO INVÁLIDA:");
+									System.out.println("OPï¿½ï¿½O INVï¿½LIDA:");
 								
 								}	
 							
@@ -146,7 +135,7 @@ public class Programa {
 									System.out.println("ESSE PROGRAMA PASSA EM MAIS DE UMA DIA NA SEMANA. ");
 									for(int i = 0; i < qtdDeDias; i++) {
 							
-										System.out.println("QUAL É O "+ (i +1) + "º DIA QUE ESSE PROGRAMA PASSA?(DOMINGO, SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA OU SABADO)");
+										System.out.println("QUAL ï¿½ O "+ (i +1) + "ï¿½ DIA QUE ESSE PROGRAMA PASSA?(DOMINGO, SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA OU SABADO)");
 										String diaDaSemanaInformado = ler.nextLine();
 										while(confirmacaoDoDia == true) {
 								
@@ -194,7 +183,7 @@ public class Programa {
 									
 											}else {
 										
-												System.out.println("OPÇÃO INVÁLIDA:");
+												System.out.println("OPï¿½ï¿½O INVï¿½LIDA:");
 									
 											}
 								
@@ -238,7 +227,7 @@ public class Programa {
 							
 						}else{
 							
-							System.out.println("OPÇÃO INVÁLIDA.");
+							System.out.println("OPï¿½ï¿½O INVï¿½LIDA.");
 							
 						}
 						
@@ -273,7 +262,7 @@ public class Programa {
 				
 				List<ProgramaDeTV> programasDeTV = c.getTodosOsProgramas();
 				
-				System.out.println("###### PROGRAMAS DE TV DO TIPO SÉRIE REGULAR #####");
+				System.out.println("###### PROGRAMAS DE TV DO TIPO Sï¿½RIE REGULAR #####");
 				
 				for(ProgramaDeTV programaPassado: programasDeTV) {
 					
@@ -287,7 +276,7 @@ public class Programa {
 				
 				System.out.println("");
 				
-				System.out.println("###### PROGRAMAS DE TV DO TIPO PROGRAMA CONTÍNUO #####");
+				System.out.println("###### PROGRAMAS DE TV DO TIPO PROGRAMA CONTï¿½NUO #####");
 				
 				for(ProgramaDeTV programaPassado: programasDeTV) {
 					
@@ -325,7 +314,7 @@ public class Programa {
 				
 				String nomeDoCanal = ler.nextLine();
 				
-				System.out.println("QUAL É O TIPO DESSE CANAL? (ABERTO OU PAGO). ");
+				System.out.println("QUAL ï¿½ O TIPO DESSE CANAL? (ABERTO OU PAGO). ");
 				
 				String tipoDoCanal = ler.nextLine();
 				
@@ -362,7 +351,7 @@ public class Programa {
 				
 			}else {
 				
-				System.out.println("OPÇÃO INVÁLIDA.");
+				System.out.println("OPï¿½ï¿½O INVï¿½LIDA.");
 				
 			}
 		
