@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<projetoPoo.CentralDeInformacoes>
+  <todosOsProgramas>
+    <projetoPoo.ProgramaDeTV>
+      <id>1653194430248</id>
+      <nome>Silvio SAntos</nome>
+      <tipo>PROGRAMAS_CONTINUOS</tipo>
+      <dia>
+        <projetoPoo.DiaDaSemana>DOMINGO</projetoPoo.DiaDaSemana>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+      </dia>
+      <canal>
+        <nome>SBT</nome>
+        <tipoDoCanal>ABERTO</tipoDoCanal>
+      </canal>
+    </projetoPoo.ProgramaDeTV>
+  </todosOsProgramas>
+  <todosOsCanais>
+    <projetoPoo.Canal>
+      <nome>SBT</nome>
+      <tipoDoCanal>ABERTO</tipoDoCanal>
+    </projetoPoo.Canal>
+  </todosOsCanais>
+</projetoPoo.CentralDeInformacoes>
