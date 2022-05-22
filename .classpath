@@ -7,5 +7,13 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="xstream-1.4.18.jar"/>
+	<classpathentry kind="lib" path="iText-5.0.5.jar"/>
+	<classpathentry kind="lib" path="activation.jar"/>
+	<classpathentry kind="lib" path="dsn.jar"/>
+	<classpathentry kind="lib" path="gimap.jar"/>
+	<classpathentry kind="lib" path="imap.jar"/>
+	<classpathentry kind="lib" path="mailapi.jar"/>
+	<classpathentry kind="lib" path="pop3.jar"/>
+	<classpathentry kind="lib" path="smtp.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

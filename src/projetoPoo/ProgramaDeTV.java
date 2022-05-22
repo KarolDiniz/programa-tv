@@ -7,6 +7,14 @@ public class ProgramaDeTV {
 	private DiaDaSemana[] dia = new DiaDaSemana[7];
 	private Canal canal;
 	
+	public Canal getCanal() {
+		return canal;
+	}
+
+	public void setCanal(Canal canal) {
+		this.canal = canal;
+	}
+
 	public ProgramaDeTV(String nome, TipoDePrograma tipo, DiaDaSemana[] dia, Canal canal) {
 		this.nome = nome;
 		this.tipo = tipo;

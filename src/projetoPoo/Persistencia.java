@@ -9,7 +9,7 @@ import java.io.*;
 public class Persistencia {
 
 	private XStream xstream = new XStream(new DomDriver("ISO-8859-1"));
-	private File arquivo = new File("banco.xml ");
+	private File arquivo = new File("centraldedados.xml ");
 
 	public void salvarCentral(CentralDeInformacoes central) {
 

@@ -16,13 +16,17 @@ public class Programa {
 		boolean sair = false;
 		
 		while(sair == false) {
+			System.out.println("");
 			System.out.println(" O QUE DESEJA FAZER: ");		
 			System.out.println(" 1 - CADASTRAR NOVO PROGRAMA. ");
 			System.out.println(" 2 - LISTAR TODOS OS PROGRAMAS. ");
 			System.out.println(" 3 - LISTAR TODOS OS PROGRAMAS DE UM MESMO TIPO. ");
 			System.out.println(" 4 - NOVO CANAL DE TELEVISÃO. ");
 			System.out.println(" 5 - LISTAR TODOS OS CANAIS DE TELEVISÃO. ");
+			System.out.println(" 6 - GERAR RELATÓRIO. ");
+			System.out.println(" 7 - ENVIAR PROGRAMAÇÃO DE HOJE POR E-MAIL. ");
 			System.out.println(" S - SAIR ");
+			System.out.println("");
 			System.out.println("DIGITE O NUMÉRO DA OPÇÃO OU S CASO QUEIRA SAIR: ");
 			String opc = ler.nextLine();
 			
@@ -90,7 +94,7 @@ public class Programa {
 							
 								System.out.println("QUAL O DIA DE SEMANA QUE ELE PASSA? (DOMINGO, SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA OU SABADO). ");
 							
-								String diaDaSemanaInformado = ler.nextLine();
+								String diaDaSemanaInformado = ler.nextLine().toUpperCase();
 							
 								if(diaDaSemanaInformado.equals("SEGUNDA")) {
 								
@@ -147,7 +151,7 @@ public class Programa {
 									for(int i = 0; i < qtdDeDias; i++) {
 							
 										System.out.println("QUAL É O "+ (i +1) + "º DIA QUE ESSE PROGRAMA PASSA?(DOMINGO, SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA OU SABADO)");
-										String diaDaSemanaInformado = ler.nextLine();
+										String diaDaSemanaInformado = ler.nextLine().toUpperCase();
 										while(confirmacaoDoDia == true) {
 								
 											if(diaDaSemanaInformado.equals("SEGUNDA")) {
@@ -206,52 +210,61 @@ public class Programa {
 									
 									
 					}
-					
-					Canal sbt = new Canal("SBT", "ABERTO");
-					Canal globo = new Canal("GLOBO", "ABERTO");
-					Canal band = new Canal("BAND", "ABERTO");
-					
-					
-					
+						
 					boolean canalIniciar = true;
-					
+					boolean testeDeConfirmacao = false;
 					while(canalIniciar == true) {
-					
+						
+						System.out.println("#####CANAIS CADASTRADOS#####/n");
+						for(Canal canalExistente: c.getTodosOsCanais()) {
+							
+							System.out.println(canalExistente.toString());
+							
+						}
+						System.out.println("");
 						System.out.println("ESSE PROGRAMA PASSA EM QUAL CANAL DE TV? ");
-					
-						String canalPassado = ler.nextLine();
-					
-						if(canalPassado.equals("SBT")) {
-							
-							canal = sbt;
-							canalIniciar = false;
-							
-						}else if(canalPassado.equals("GLOBO")) {
+						System.out.println("SE O CANAL QUE DESEJA CADASTRAR NÃO ESTIVER NA LISTA DE CANAIS, DIGITE 'S':  ");
+						String canalPassado = ler.nextLine().toUpperCase();
 						
-							canal = globo;
+						if (canalPassado.equals("S")){
+							
+							System.out.println("VOCÊ DEVE CADASTRAR UM CANAL PRIMEIRO. " );
 							canalIniciar = false;
 							
-						}else if(canalPassado.equals("BAND")) {
-						
-							canal = band;
-							canalIniciar = false;
+						}else {
 							
-						}else{
+							for(Canal canalExistente: p.recuperarCentral().getTodosOsCanais()) {
+								if(canalExistente.getNome().equals(canalPassado)) {
+									canal = canalExistente; 
+									canalIniciar = false;
+									testeDeConfirmacao = true;
+									break;
+								}
+									
 							
-							System.out.println("OPÇÃO INVÁLIDA.");
+							}
+							if(testeDeConfirmacao == false) {
+								System.out.println("OPÇÃO INVÁLIDA.");
+								
+							
+							}
 							
 						}
 						
-					}
-					
-				ProgramaDeTV programa = new ProgramaDeTV( nomeDoPrograma, tipoDePrograma, diaDaSemana, canal);
+					}	
+				if(testeDeConfirmacao == true) {		
+					ProgramaDeTV programa = new ProgramaDeTV( nomeDoPrograma, tipoDePrograma, diaDaSemana, canal);
 			
-				c.adicionarProgramaDeTV(programa);
+					c.adicionarProgramaDeTV(programa);
 					
-				p.salvarCentral(c);
+					p.salvarCentral(c);
 				
-				
-	
+					System.out.println("");	
+					System.out.println("PROGRAMA CADASTRADO COM SUCESSO!");
+					System.out.println("");
+				}else {
+					System.out.println("CADASTRO DE PROGRAMA INCOMPLETO.");
+				}
 					
 				
 			}else if(opc.equals("2")){
@@ -353,6 +366,48 @@ public class Programa {
 				
 				
 		
+				
+				
+				
+			}else if(opc.equals("6")) {
+				
+				List<Canal> canais = c.getTodosOsCanais();
+				
+				System.out.println("\n##### CANAIS CADASTRADOS #####\n");
+				
+				for(Canal canalPassado: canais) {
+					
+					System.out.println(canalPassado.toString());
+					
+				}
+				
+				System.out.println("DE QUAL CANAL DE TV DESEJA GERAR O RELATÓRIO DA PROGRAMAÇÃO: ");
+				
+				String canalPassadoParaRelatorio = ler.nextLine().toUpperCase();
+				
+				for(Canal canalLista: c.getTodosOsCanais()) {
+					
+					if(canalLista.getNome().equals(canalPassadoParaRelatorio)) {
+						
+						GeradorDeRelatorios.obterProgramacaoDeUmCanal(canalLista);
+						break;
+						
+					}
+				
+				}
+				
+				
+			}else if(opc.equals("7")) {
+				
+				System.out.println("PARA QUAL E-MAIL DESEJA ENVIAR O RELATORIO DA PROGRAMACAO DE HOJE?");
+				
+				String destinatario = ler.nextLine();
+					
+				String assunto = "Relatório da programação do dia de hoje" ;  
+				
+				String mensagem = "Estamos quase";
+			
+				Mensageiro.enviarProgramacaoDeHoje(assunto, destinatario, mensagem);
 				
 				
 				

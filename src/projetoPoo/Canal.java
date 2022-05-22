@@ -3,6 +3,7 @@ package projetoPoo;
 public class Canal {
 	
 	private String nome;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -10,7 +11,8 @@ public class Canal {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
+	
 	private String tipoDoCanal;
 	
 	public Canal() {
