@@ -1,4 +1,8 @@
-package projetoPoo;
+package agencias;
+
+
+import transmissao.Canal;
+import transmissao.ProgramaDeTV;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package projetoPoo;
+package transmissao;
 
 public class Canal {
 	

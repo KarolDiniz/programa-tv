@@ -1,4 +1,7 @@
-package projetoPoo;
+package transmissao;
+
+import enums.DiaDaSemana;
+import enums.TipoDePrograma;
 
 public class ProgramaDeTV {
 	private long id;
@@ -28,7 +31,7 @@ public class ProgramaDeTV {
 	}
 	
 	public String toString() {
-		return "O nome do programa é: " + nome;
+		return "O nome do programa ï¿½: " + nome;
 	}
 	public long getID() {
 		return id;

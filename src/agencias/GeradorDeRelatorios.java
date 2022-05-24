@@ -1,4 +1,5 @@
-package projetoPoo;
+package agencias;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +10,10 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+
+import transmissao.Canal;
+import transmissao.ProgramaDeTV;
+
 
 public class GeradorDeRelatorios {
 	
@@ -22,7 +27,7 @@ public class GeradorDeRelatorios {
 		
 
 		try {
-			OutputStream os = new FileOutputStream("relatório.pdf");
+			OutputStream os = new FileOutputStream("relatï¿½rio.pdf");
 			PdfWriter.getInstance(doc, os);
 			
 			doc.open();
@@ -50,12 +55,7 @@ public class GeradorDeRelatorios {
 		} catch (DocumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-			
-			
-					
-			
-			
+		}	
 	}
 		
 }

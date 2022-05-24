@@ -1,4 +1,4 @@
-package projetoPoo;
+package agencias;
 
 	import java.util.Properties;
 
@@ -51,7 +51,7 @@ package projetoPoo;
 	            Transport.send(mensagem);
 
 	        } catch (MessagingException e) {
-	            System.out.print("[Ocorrência de erro] Tente novamente! ");
+	            System.out.print("[Ocorrï¿½ncia de erro] Tente novamente! ");
 	        }
 	    }
 	} 
